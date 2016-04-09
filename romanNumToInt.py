@@ -1,4 +1,4 @@
-def romanToInt(s):
+def romanToInt1(s):
     """
     :type s: str
     :rtype: int
@@ -35,3 +35,17 @@ def romanToInt(s):
     	elif s[x] == "M" or s[x] == "m":
     		intTotal += 1000
     return intTotal
+
+def romanToInt2(s):
+	rValues = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
+	rNum = s.upper()
+	intTotal = 0
+	for x in range(0, len(rNum)):
+		if x + 1 == len(rNum):
+			intTotal += rValues[rNum[x]]
+		else:
+			if rValues[rNum[x+1]] > rValues[rNum[x]]:
+				intTotal -= rValues[rNum[x]]
+			else:
+				intTotal += rValues[rNum[x]]
+	return intTotal
