@@ -17,3 +17,15 @@ class Solution(object):
                 nums[i], nums[j+1] = nums[j+1], nums[i]
                 j = j + 1
         return j+1
+
+'''
+Another fun with pointers problem,
+this one simply removes a single value from the list
+'''
+def removeElement(A, elem):
+        j = len(A)-1
+        for i in range(len(A) - 1, -1, -1):
+            if A[i] == elem:
+                A[i], A[j] = A[j], A[i]
+                j -= 1
+        return j+1
