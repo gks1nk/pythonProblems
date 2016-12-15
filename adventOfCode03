@@ -21,3 +21,31 @@ print goodTri
 """
 ADVENT OF CODE DAY 3 PROBLEM 2
 """
+#file = open('file1.txt', 'r')
+
+goodTri = 0
+col1 = []
+col2 = []
+col3 = []
+
+def isTriangle(a, b, c):
+  if a + b > c and a + c > b and b + c > a:
+    return True
+  else:
+    return False
+
+with open("file1.txt") as f:
+    for line in f:
+        l = line
+        l = l.split( )
+        col1.append(int(l[0]))
+        col2.append(int(l[1]))
+        col3.append(int(l[2]))
+        
+allCols = col1 + col2 + col3
+
+for i in range(0, len(allCols), 3):
+  if isTriangle(allCols[i], allCols[i + 1], allCols[i + 2]):
+    goodTri += 1
+        
+print goodTri
